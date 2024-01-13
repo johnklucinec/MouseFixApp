@@ -1,5 +1,7 @@
 #ifndef MARKC_H
 #define MARKC_H
+#include <vector>
+#include <Windows.h>
 
 // Declaration of an enum class named Scale
 // Each member represents a different scaling factor
@@ -14,6 +16,18 @@ public:
 private:
     // Member variable to store the current scale
     Scale scale;
+
+    void setScale100();
+    void setScale125();
+    void setScale150();
+    void setScale175();
+    void setScale200();
+    void setScale225();
+    void setScale250();
+    void setScale300();
+    void setScale350();
+    void setScaleDefault();
+    void applyMarkC(const std::vector<BYTE>& xData, const std::vector<BYTE>& yData);
 };
 
 #endif // MARKC_H

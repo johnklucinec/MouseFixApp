@@ -10,12 +10,19 @@ public:
     explicit RegistryManager(HKEY rootKey = HKEY_CURRENT_USER); // Constructor with default root key
     void createKey(const std::string& path);
     void createVec(const std::string& path, const std::vector<BYTE>& data, const std::string& valName = "");
-    void createVal(const std::string& path, const std::string& exepath, const std::string& valName = "");
+    void createVal(const std::string& path, const std::string& data, const std::string& valName = "");
+    void createDWORDVal(const std::string& path, DWORD data, const std::string& valName);
+    void deleteVal(const std::string& path, const std::string& valName);
+    void deleteKey(const std::string& path);
+
+    //template<typename T>
+    //void createVal(const std::string& path, const T& data, const std::string& valName);
 
 private:
     HKEY m_rootKey; // Member variable to store the root key
     LONG openKey(const std::string& subKey, REGSAM rights, HKEY* resultKey);
     void closeKey(HKEY hKey);
+
 };
 
 #endif // REGISTRY_MANAGER_H

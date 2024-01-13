@@ -24,12 +24,18 @@
     <ClCompile Include="RegistryManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MouseTweaks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="markC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RegistryManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseTweaks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

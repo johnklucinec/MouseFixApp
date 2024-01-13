@@ -137,11 +137,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="markC.cpp" />
+    <ClCompile Include="MouseTweaks.cpp" />
     <ClCompile Include="RegistryManager.cpp" />
     <ClCompile Include="windowsOptimizationApp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="markC.h" />
+    <ClInclude Include="MouseTweaks.h" />
     <ClInclude Include="RegistryManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
