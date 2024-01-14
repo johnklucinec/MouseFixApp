@@ -1,0 +1,6 @@
+# Format Style Options - Created with Clang Power Tools
+---
+BasedOnStyle: LLVM
+IndentWidth: 4
+ObjCBlockIndentWidth: 4
+...
