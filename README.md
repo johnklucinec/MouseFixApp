@@ -48,7 +48,7 @@ My goal was to ensure that the end-users could apply and undo any adjustments th
     [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions]
 
     // Make sure key is created and accessible.
-    RegistryManager regManager(HKEY_LOCAL_MACHINE);
+    RegistryManager regManager(HKEY_LOCAL_MACHINE); // Use HKEY_LOCAL_MACHINE
     regManager.createKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions");
 
     // Set/Create a value (DWORD)
@@ -76,26 +76,6 @@ My goal was to ensure that the end-users could apply and undo any adjustments th
     regManager.createVec("Control Panel\\Mouse", xData, "SmoothMouseXCurve");
 ```
 
-### Create Registry Key and Vector of Values (REG_SZ)
-```cpp
-    [HKEY_CURRENT_USER\Control Panel\Mouse]
-
-    // Curve data
-    const std::vector<BYTE> xData = {
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x6e,
-        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0x01, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x29, 0xdc, 0x03, 0x00, 0x00, 0x00,
-        0x00, 0x00, 0x00, 0x00, 0x28, 0x00, 0x00, 0x00, 0x00, 0x00
-    };
-
-    // Make sure key is created and accessible.
-    RegistryManager regManager;
-
-    regManager.createKey("Control Panel\\Mouse");
-
-    // Set/Create a value (Vec of REG_SZ)
-    regManager.createVec("Control Panel\\Mouse", xData, "SmoothMouseXCurve");
-```
 ## Examples - Mouse Tweaks
 ### Apply Mouse Tweaks 
 ```cpp
