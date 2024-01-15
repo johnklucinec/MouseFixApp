@@ -6,7 +6,7 @@ My goal was to ensure that the end-users could apply and undo any adjustments th
  
 
 ## Features
-Registry Editor
+**Registry Editor**
   * Create registry keys
   * Create registry values
     * only REG_SZ and REG_DWORD currently
@@ -15,14 +15,14 @@ Registry Editor
   * Helpful error handling
     * returns error in LONG variable
 
-Mouse Tweeks
+**Mouse Tweeks**
   * Change mouse buffer size
   * Change Csrss priority to real time (safe)
   * Revert mouse buffer size to defult
   * Revert Csrss buffer size to default
   * Uses my registry editor and implements the same error handling
 
-MarkC Fix
+**MarkC Fix**
   * Apply popular MarkC mouse acceleration for set scaling factors
     * Scale Options: Default, 100%, 125%, 150%, 175%, 200%, 225%, 250%, 300%, and 350%
   * Revert to default windows mouse acceleration values
