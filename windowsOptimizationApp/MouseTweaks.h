@@ -8,10 +8,10 @@
 class MouseTweaks {
 public:
     // Default/Recommended Data Queue size is 20
-    void applyDataQueue(DWORD buffer = 20);
-    void applyBoostCsrss();
-    void revertDataQueue();
-    void revertBoostCsrss();
+    LONG applyDataQueue(DWORD buffer = 20);
+    LONG applyBoostCsrss();
+    LONG revertDataQueue();
+    LONG revertBoostCsrss();
 };
 
 #endif // MOUSETWEAKS_H

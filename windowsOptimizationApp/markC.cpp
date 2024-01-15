@@ -12,11 +12,8 @@ static const std::vector<BYTE> yData = {
     0x00, 0x00, 0x00, 0x00, 0xE0, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-// Apply MarkC mouse fix with the given xData and yData
-void applyMarkC(const std::vector<BYTE>& xData, const std::vector<BYTE>& yData);
-
 // Windows_10+8.x_MouseFix_ItemsSize=100%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale100()
+LONG MouseScaleFix::setScale100()
 {
 
     // Curve data
@@ -28,13 +25,12 @@ void MouseScaleFix::setScale100()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 100)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 100)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=125%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale125()
+LONG MouseScaleFix::setScale125()
 {
 
     // Curve data
@@ -46,13 +42,12 @@ void MouseScaleFix::setScale125()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 125)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 125)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=150%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale150()
+LONG MouseScaleFix::setScale150()
 {
 
     // Curve data
@@ -64,13 +59,12 @@ void MouseScaleFix::setScale150()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 150)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 150)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=175%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale175()
+LONG MouseScaleFix::setScale175()
 {
 
     // Curve data
@@ -82,13 +76,12 @@ void MouseScaleFix::setScale175()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 175)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 175)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=200%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale200()
+LONG MouseScaleFix::setScale200()
 {
 
     // Curve data
@@ -100,13 +93,12 @@ void MouseScaleFix::setScale200()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 200)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 200)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=225%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale225()
+LONG MouseScaleFix::setScale225()
 {
 
     // Curve data
@@ -118,13 +110,12 @@ void MouseScaleFix::setScale225()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 225)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 225)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=250%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale250()
+LONG MouseScaleFix::setScale250()
 {
 
     // Curve data
@@ -136,13 +127,12 @@ void MouseScaleFix::setScale250()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 200)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 250)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=300%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale300()
+LONG MouseScaleFix::setScale300()
 {
 
     // Curve data
@@ -154,13 +144,12 @@ void MouseScaleFix::setScale300()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 225)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 300)");
 }
 
 // Windows_10+8.x_MouseFix_ItemsSize=350%_Scale=1-to-1_@6-of-11
-void MouseScaleFix::setScale350()
+LONG MouseScaleFix::setScale350()
 {
 
     // Curve data
@@ -172,13 +161,12 @@ void MouseScaleFix::setScale350()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set (scale 350)" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData, "(Scale 350)");
 }
 
 // Set scale back to the default values
-void MouseScaleFix::setScaleDefault()
+LONG MouseScaleFix::setScaleDefault()
 {
 
     // Curve data
@@ -197,25 +185,30 @@ void MouseScaleFix::setScaleDefault()
     };
 
     // Apply the mouse fix
-    applyMarkC(xData, yData);
-
-    std::cout << "The mouse fix was set to Default" << std::endl;
+    // Returns statusCode (LONG)
+    return applyMarkC(xData, yData);
 }
 
-void MouseScaleFix::applyMarkC(const std::vector<BYTE>& xData,
-    const std::vector<BYTE>& yData)
+LONG MouseScaleFix::applyMarkC(const std::vector<BYTE>& xData, const std::vector<BYTE>& yData, const char* scale)
 {
 
     // [HKEY_CURRENT_USER\Control Panel\Mouse]
     // Make sure key is created and accessible.
     RegistryManager regManager;
+
     regManager.createKey("Control Panel\\Mouse");
 
     // Set values
     regManager.createVec("Control Panel\\Mouse", xData, "SmoothMouseXCurve");
     regManager.createVec("Control Panel\\Mouse", yData, "SmoothMouseYCurve");
-    regManager.createVal("Control Panel\\Mouse", "10",
-        "MouseSensitivity");
+    regManager.createVal("Control Panel\\Mouse", "10", "MouseSensitivity");
+
+    // Return if any errors so far
+    LONG statusCode = regManager.getStatusCode();
+    if (statusCode != ERROR_SUCCESS) {
+        std::cout << "There was an error setting the values. Error code: " << statusCode << std::endl;
+        return statusCode;
+    }
 
     RegistryManager regManagerUsers(HKEY_USERS); // Use HKEY_USERS
 
@@ -224,46 +217,45 @@ void MouseScaleFix::applyMarkC(const std::vector<BYTE>& xData,
     regManagerUsers.createKey(".DEFAULT\\Control Panel\\Mouse");
 
     // Set values
-    regManagerUsers.createVal(".DEFAULT\\Control Panel\\Mouse", "10",
-        "MouseSpeed");
-    regManagerUsers.createVal(".DEFAULT\\Control Panel\\Mouse", "10",
-        "MouseThreshold1");
-    regManagerUsers.createVal(".DEFAULT\\Control Panel\\Mouse", "10",
-        "MouseThreshold2");
+    regManagerUsers.createVal(".DEFAULT\\Control Panel\\Mouse", "10", "MouseSpeed");
+    regManagerUsers.createVal(".DEFAULT\\Control Panel\\Mouse", "10", "MouseThreshold1");
+    regManagerUsers.createVal(".DEFAULT\\Control Panel\\Mouse", "10", "MouseThreshold2");
+
+    statusCode = regManagerUsers.getStatusCode();
+    if (statusCode == ERROR_SUCCESS) {
+        std::cout << "The MarkC mouse fix was applied! " << scale << std::endl;
+    } else {
+        std::cout << "There was an error setting the values. Error code: " << statusCode << std::endl;
+    }
+
+    // Return final status code.
+    return statusCode;
 }
 
-void MouseScaleFix::applyMouseFix()
+LONG MouseScaleFix::applyMouseFix()
 {
-    switch (scale) {
+    switch (m_scale) {
     case Scale::Scale100:
-        setScale100();
-        break;
+        return setScale100();
     case Scale::Scale125:
-        setScale125();
-        break;
+        return setScale125();
     case Scale::Scale150:
-        setScale150();
-        break;
+        return setScale150();
     case Scale::Scale175:
-        setScale175();
-        break;
+        return setScale175();
     case Scale::Scale200:
-        setScale200();
-        break;
+        return setScale200();
     case Scale::Scale225:
-        setScale225();
-        break;
+        return setScale225();
     case Scale::Scale250:
-        setScale250();
-        break;
+        return setScale250();
     case Scale::Scale300:
-        setScale300();
-        break;
+        return setScale300();
     case Scale::Scale350:
-        setScale350();
-        break;
+        return setScale350();
     case Scale::Default:
-        setScale350();
-        break;
+        return setScaleDefault();
+    default:
+        return setScaleDefault();
     }
 }

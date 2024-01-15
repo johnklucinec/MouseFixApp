@@ -23,29 +23,28 @@ enum class Scale {
 
 class MouseScaleFix {
 public:
-    MouseScaleFix()
-        : scale(Scale::Default)
+    MouseScaleFix(Scale scale = Scale::Default)
+        : m_scale(scale)
     {
     } // Default constructor
-    void applyMouseFix();
-    void setScale(Scale newScale) { scale = newScale; }
+    LONG applyMouseFix();
+    void setScale(Scale newScale) { m_scale = newScale; }
 
 private:
     // Member variable to store the current scale
-    Scale scale;
+    Scale m_scale;
 
-    void setScale100();
-    void setScale125();
-    void setScale150();
-    void setScale175();
-    void setScale200();
-    void setScale225();
-    void setScale250();
-    void setScale300();
-    void setScale350();
-    void setScaleDefault();
-    void applyMarkC(const std::vector<BYTE>& xData,
-        const std::vector<BYTE>& yData);
+    LONG setScale100();
+    LONG setScale125();
+    LONG setScale150();
+    LONG setScale175();
+    LONG setScale200();
+    LONG setScale225();
+    LONG setScale250();
+    LONG setScale300();
+    LONG setScale350();
+    LONG setScaleDefault();
+    LONG applyMarkC(const std::vector<BYTE>& xData, const std::vector<BYTE>& yData, const char* scale = "(Default)");
 };
 
 #endif // MARKC_H

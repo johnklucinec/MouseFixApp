@@ -3,7 +3,7 @@
 #include <string>
 #include <Windows.h>
 
-void MouseTweaks::applyDataQueue(DWORD buffer)
+LONG MouseTweaks::applyDataQueue(DWORD buffer)
 {
     // [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
     // Make sure key is created and accessible.
@@ -15,9 +15,11 @@ void MouseTweaks::applyDataQueue(DWORD buffer)
         "MouseDataQueueSize");
     regManager.createVal("SYSTEM\\CurrentControlSet\\Services\\mouclass\\Parameters", DWORD(31),
         "ThreadPriority");
+
+    return regManager.getStatusCode();
 }
 
-void MouseTweaks::applyBoostCsrss()
+LONG MouseTweaks::applyBoostCsrss()
 {
     // [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\Windows NT\CurrentVersion\Image File Execution Options\csrss.exe\PerfOptions]
     // Make sure key is created and accessible.
@@ -29,20 +31,26 @@ void MouseTweaks::applyBoostCsrss()
         "CpuPriorityClass");
     regManager.createVal("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions", DWORD(3),
         "IoPriority");
+
+    return regManager.getStatusCode();
 }
 
-void MouseTweaks::revertDataQueue()
+LONG MouseTweaks::revertDataQueue()
 {
     RegistryManager regManager(HKEY_LOCAL_MACHINE);
 
     // Delete keys and values to revert data queue tweak
     regManager.deleteKey("SYSTEM\\CurrentControlSet\\Services\\mouclass\\Parameters");
+
+    return regManager.getStatusCode();
 }
 
-void MouseTweaks::revertBoostCsrss()
+LONG MouseTweaks::revertBoostCsrss()
 {
     RegistryManager regManager(HKEY_LOCAL_MACHINE);
 
     // Delete keys and values to revert csrss tweak
     regManager.deleteKey("SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\csrss.exe\\PerfOptions");
+
+    return regManager.getStatusCode();
 }
