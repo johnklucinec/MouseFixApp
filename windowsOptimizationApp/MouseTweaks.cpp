@@ -5,6 +5,10 @@
 
 LONG MouseTweaks::applyDataQueue(DWORD buffer)
 {
+    if (buffer <= 0) {
+        return ERROR_INVALID_PARAMETER;
+    }
+
     // [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mouclass\Parameters]
     // Make sure key is created and accessible.
     RegistryManager regManager(HKEY_LOCAL_MACHINE);
